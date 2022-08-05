@@ -41,7 +41,7 @@ function onGeoOk(position) {
 
 
 function onGeoError() {
-  alert("현재 위치를 알 수 없어요!.");
+  alert("현재 위치를 알 수 없어요!");
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);

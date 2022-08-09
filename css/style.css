@@ -1,4 +1,31 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+@keyframes heartBeat {
+  0% {
+    transform: scale(0.95);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  from {
+    transform: translate(40px);
+    opacity: 0.7;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
 
 html {
   background: no-repeat center center fixed;
@@ -6,6 +33,15 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input:focus-within {
+  background-color: skyblue;
 }
 
 body {
@@ -15,7 +51,6 @@ body {
 
 h1 {
   animation: fadeIn 2s alternate;
-
 }
 
 ul {
@@ -23,19 +58,19 @@ ul {
   list-style-type: none;
   color: black;
   padding-left: 0;
-  display:block;
-  flex-direction:column;
-  flex-wrap:wrap; 
-  text-overflow:clip;
+  display: block;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-overflow: clip;
   overflow-y: scroll;
   width: 30em;
   height: 14em;
-
+  overflow-x: hidden;
 }
 
 ul li::before {
   background: url("../mona-loading-default.gif");
-  content: '';
+  content: "";
   display: inline-block;
   height: 25px;
   width: 25px;
@@ -43,52 +78,48 @@ ul li::before {
   background-repeat: no-repeat;
   margin-right: 5px;
   vertical-align: middle;
-  
 }
 
-
-
-li {  
-  font-size: 22px;;
-  animation: fadeIn 0.8s linear;    
+li {
+  cursor: pointer;
+  font-size: 1.5em;
+  animation: heartBeat 1.3s linear;
 }
 
-
-@keyframes fadeIn {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
+li:hover {
+  animation: heartBeat 1.3s linear;
 }
-
 
 span {
   margin: 0, 5px, 0, 5px;
   padding: 0;
   text-align: center;
   font-size: 0.7em;
-
 }
 
+.checked {
+  text-decoration: line-through;
+}
 
-button { 
+button {
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
   border: none;
-  animation: fadeIn 2s alternate;
-
 }
 
-button:hover{
-  color:white;
+button:hover {
   background-color: skyblue;
   cursor: pointer;
   transition: 0.7s;
+}
+
+.changeBtn {
+  animation: fadeIn 2s linear;
+}
+
+.clearBtn {
+  animation: fadeIn 2s linear;
 }
 
 .toAlign {
@@ -100,23 +131,21 @@ button:hover{
   margin-top: 5px;
   margin-bottom: 5px;
   animation: fadeIn 2s alternate;
-
 }
 
-.login :hover{
-  color:white;
+.login :hover {
+  color: white;
   background-color: skyblue;
   cursor: pointer;
   transition: 0.7s;
 }
-
 
 .text-box {
   background-color: #fff;
   width: max-content;
   height: max-content;
   border-radius: 35px;
-  opacity: 0.8;
+  opacity: 0.7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,26 +156,22 @@ button:hover{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  
 }
 
 .hidden {
-    display: none;
-    animation: fadeIn 2s alternate;
-
+  display: none;
+  animation: fadeIn 2s alternate;
 }
 
 .login {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   animation: fadeIn 2s alternate;
-
 }
 
 #weather {
   font-weight: 800;
   animation: fadeIn 2s alternate;
-
 }
 
 #clock {
@@ -154,7 +179,7 @@ button:hover{
   animation: imgAppear 1.7s alternate;
 }
 
-#todo-form input{
+#todo-form input {
   border: none;
   height: 20px;
   width: 300px;
@@ -166,12 +191,10 @@ button:hover{
   background-color: #fff;
   border-radius: 25px;
   animation: fadeIn 2s alternate;
-
 }
 
 #weather {
-  font-size: 2em;
-  animation:imgAppear 2s ease-in;
+  animation: imgAppear 2s ease-in;
 }
 
 @keyframes imgAppear {
@@ -205,43 +228,41 @@ button:hover{
 }
 
 #quote {
-  font-size: 1.5em;
+  font-size: 20px;
   font-weight: 600;
   width: max-content;
   animation: fadeIn 2s alternate;
 }
 
-#quote #quotes { 
+#quote #quotes {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
 /* youtube video */
-.video-container{
+.video-container {
   width: 100vw;
-  height:100vh;
+  height: 100vh;
   opacity: 0.5;
-
 }
-
 
 iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height:100vh;
-    transform : translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
 }
- 
+
 @media (min-aspect-ratio: 16/9) {
-    .video-container iframe {
-      height: 56.25vw;
-    }
+  .video-container iframe {
+    height: 56.25vw;
   }
+}
 @media (max-aspect-ratio: 16/9) {
-    .video-container iframe {
-      width: 177.78vh;
+  .video-container iframe {
+    width: 177.78vh;
   }
 }

@@ -1,5 +1,7 @@
 const toDoForm = document.getElementById("todo-form");
-const toDoInput = document.querySelector("#todo-form input");
+const toDoInput = document.querySelector(
+  "#todo-form input"
+);
 const toDoList = document.getElementById("todo-list");
 
 // 로컬스토리지 투두 키값 선언
@@ -16,19 +18,36 @@ function saveToDos() {
 function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  toDos = toDos.filter(
+    (toDo) => toDo.id !== parseInt(li.id)
+  );
   saveToDos();
 }
 
+const handleLine = (event) => {
+  const li = document.querySelector("ul");
+  li.addEventListener(
+    "click",
+    function (event) {
+      if ((event.target.tagName = "span")) {
+        event.target.classList.toggle("checked");
+      }
+    },
+    false
+  );
+};
+
 // 전체삭제, 페이지 및 로컬스토리지 내 투두 값 모두 삭제 후 빈 배열 반환
-function clearToDoList (event) {
-  document.querySelector('ul').innerHTML = '';
-  localStorage.removeItem("todos")
+function clearToDoList(event) {
+  document.querySelector("ul").innerHTML = "";
+  localStorage.removeItem("todos");
   toDos = [];
 }
 
 function clearAll() {
-  document.getElementById("todo-list").addEventListener("click", clearToDoList());
+  document
+    .getElementById("todo-list")
+    .addEventListener("click", clearToDoList());
 }
 
 // 투두 내용 추가하기

@@ -1,102 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-  
-    <title>My "TODO" List!</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-  <body>
-    
-<!-- 유튜브 플레이어가 백그라운드로 들어감 -->
+  <title>My "TODO" List!</title>
+</head>
+
+
+<body>
+
+  <!-- 유튜브 플레이어가 백그라운드로 들어감 -->
   <div class="video-container">
-    <iframe id="ytMusicPlayer"
-        
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; 
+    <iframe id="ytMusicPlayer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
         encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
-      </div>
-    
-<!-- 투두리스트 본문 부분 레이아웃 제한 -->
-     <div class="text-box">
-      <h2 id="clock">00:00:00</h2>
-        <form class="hidden" id="login-form">
-          <input
-          required
-          maxlength="15"
-          type="text"
-          placeholder="What is your name?"
-          style="text-align: center; border: none;"
-          />
-          <br>
-          <input 
-          class="login"
-          type="submit" 
-          value="Welcome!"
-          "/>
+    </iframe>
+  </div>
+
+  <!-- 투두리스트 본문 부분 레이아웃 제한 -->
+  <div class="text-box">
+    <h2 id="clock">00:00:00</h2>
+    <form class="hidden" id="login-form">
+      <input required maxlength="15" type="text" placeholder="What is your name?"
+        style="text-align: center; border: none;" />
+      <br>
+      <input class="login" type="submit" value="Welcome!" "/>
     </form>
     
     <!-- 유저이름 입력 및 편집 -->
-  <h1 
-    class="hidden" 
-    id="greeting"
-    style="margin: 0;">
-  </h1>
-    
-    <button
-    class="changeBtn"
-    onclick="changeUsername()"
-    style="border: 1px solid;
+  <h1
+    onchange=" handleAnime()" class=" hidden" id="greeting" style="margin: 0;">
+      </h1>
+
+      <button class="changeBtn" onclick="changeUsername()" style="border: 1px solid;
     border-radius: 25px;
     margin-top: 5px;
-    margin-bottom: 5px;" 
-    
-    >Change Your Name</button>
-    
-    
-    <!-- 투두 리스트 입력 및 삭제 -->
-    <form id="todo-form">
-      <input type="text" placeholder="오늘도 힘내봐요!" required />
-    </form>
-  </br>
-  <button 
-      class="clearBtn"
-      style="border: 1px solid;
+    margin-bottom: 5px;">Change Your Name</button>
+
+
+      <!-- 투두 리스트 입력 및 삭제 -->
+      <form id="todo-form">
+        <input type="text" placeholder="오늘도 힘내봐요!" required />
+      </form>
+      </br>
+      <button class="clearBtn" style="border: 1px solid;
       border-radius: 25px;
       margin-top: 5px;
-      margin-bottom: 5px;"
-      onclick="clearAll()" 
-      type="button" >
-      Clear All</button>
+      margin-bottom: 5px;" onclick="clearAll()" type="button">
+        Clear All</button>
 
-  <ul id="todo-list"></ul>
-  <div id="quote">
-    <span></span>
-    <span></span>
+      <ul id="todo-list" onclick="handleLine()"></ul>
+      <div id="quote">
+        <span></span>
+        <span></span>
+      </div>
+      </br>
+      <div id="weather">
+        <span></span>
+        <span></span>
+      </div>
+
   </div>
-</br>
-<div id="weather">
-  <span></span>
-  <span></span>
-</div>
-
-</div>
 
 
-<script src="js/greetings.js"></script>
-<script src="js/clock.js"></script>
-<script src="js/quotes.js"></script>
-<script src="js/background.js"></script>
-<script src="js/todo.js"></script>
-<script src="js/weather.js"></script>
-</div>  
+  <script src="js/greetings.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="js/weather.js"></script>
+  </div>
 </body>
-</html>
 
+</html>

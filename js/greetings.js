@@ -3,6 +3,8 @@ const loginInput = document.querySelector(
   "#login-form input"
 );
 const greeting = document.querySelector("#greeting");
+const gAnime = document.querySelector("#greetingAnime")
+
 
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
@@ -36,15 +38,10 @@ function cleanUsername() {
   document.querySelector("h1").innerHTML = "";
   username = [];
   loginForm.classList.remove(HIDDEN_CLASSNAME);
+  gAnime.classList.remove(greetingAnime);
 }
 
 function changeUsername() {
   greeting.addEventListener("click", cleanUsername());
 }
 
-function handleAnime() {
-  loginInput.addEventListener("click", function () {
-    document.querySelector("h1").style.animation =
-      "fadeIn 3s alternate";
-  });
-}

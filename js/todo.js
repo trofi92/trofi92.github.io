@@ -29,7 +29,7 @@ const handleLine = (event) => {
   li.addEventListener(
     "click",
     function (event) {
-      if ((event.target.tagName = "span")) {
+      if ((event.target.tagName = "li")) {
         event.target.classList.toggle("checked");
       }
     },
@@ -54,12 +54,12 @@ function clearAll() {
 function paintToDo(newTodo) {
   const li = document.createElement("li");
   li.id = newTodo.id;
-  const span = document.createElement("span");
-  span.innerText = newTodo.text;
+  // const span = document.createElement("span");
+  // span.innerText = newTodo.text;
   const button = document.createElement("button");
-  button.innerText = "💯";
+  button.innerText = `${newTodo.text}💯`;
   button.addEventListener("click", deleteToDo);
-  li.appendChild(span);
+  // li.appendChild(span);
   li.appendChild(button);
   toDoList.appendChild(li);
 }

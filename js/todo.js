@@ -8,7 +8,7 @@ const toDoList = document.getElementById("todo-list");
 const TODOS_KEY = "todos";
 
 // 입력한 투두 값을 변경가능한 배열로 저장하도록 선언
-let toDos = [];
+const toDos = [];
 
 // 로컬스토리지에 투두 키-밸류 저장
 function saveToDos() {
